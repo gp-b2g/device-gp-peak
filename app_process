@@ -1,0 +1,22 @@
+#!/system/bin/sh
+
+fakeperm &
+sleep 1 &&
+chmod 666 /dev/socket/rild &&
+rilproxy &
+chmod 666 /data/misc/wifi/wpa_supplicant.conf
+mount -o rw,remount /dev/block/mmcblk0p12 /system
+chmod 755 /system/b2g/b2g
+chmod 755 /system/b2g/plugin-container
+chmod 755 /system/b2g/updater
+chmod 4755 /system/bin/mksh
+chmod 777 /data/local
+chmod 777 /system/b2g
+chown shell.shell /system/b2g/*
+chown shell.shell /system/b2g/*/*
+chown shell.shell /system/b2g/*/*/*
+setprop persist.sys.usb.config mass_storage,adb
+echo 1 > /data/property/persist.radio.adb_log_on
+echo "mass_storage,adb" > /data/property/persist.sys.usb.config
+chmod 666 /dev/oncrpc/*
+b2g.sh
