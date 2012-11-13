@@ -15,8 +15,7 @@
 # limitations under the License.
 
 DEVICE=twist
-COMMON=common
-MANUFACTURER=GEEKSPHONE
+MANUFACTURER=geeksphone
 
 if [[ -z "${ANDROIDFS_DIR}" && -d ../../../backup-${DEVICE}/system ]]; then
     ANDROIDFS_DIR=../../../backup-${DEVICE}
@@ -39,21 +38,20 @@ if [[ ! -d ../../../backup-${DEVICE}/system  && -z "${ANDROIDFS_DIR}" ]]; then
     cp ../../../backup-${DEVICE}/system/etc/wifi/WCN* ../../../backup-${DEVICE}/system/etc/firmware/wlan/volans
 fi
 
-BASE_PROPRIETARY_COMMON_DIR=vendor/$MANUFACTURER/$COMMON/proprietary
-PROPRIETARY_DEVICE_DIR=../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-PROPRIETARY_COMMON_DIR=../../../$BASE_PROPRIETARY_COMMON_DIR
+BASE_PROPRIETARY_DEVICE_DIR=vendor/$MANUFACTURER/$DEVICE/proprietary
+PROPRIETARY_DEVICE_DIR=../../../$BASE_PROPRIETARY_DEVICE_DIR
 
 mkdir -p $PROPRIETARY_DEVICE_DIR
 
 for NAME in adreno hw wifi etc
 do
-    mkdir -p $PROPRIETARY_COMMON_DIR/$NAME
+    mkdir -p $PROPRIETARY_DEVICE_DIR/$NAME
 done
 
 
-COMMON_BLOBS_LIST=../../../vendor/$MANUFACTURER/$COMMON/vendor-blobs.mk
+DEVICE_BLOBS_LIST=../../../vendor/$MANUFACTURER/$DEVICE/vendor-blobs.mk
 
-(cat << EOF) | sed s/__COMMON__/$COMMON/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > $COMMON_BLOBS_LIST
+(cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > $DEVICE_BLOBS_LIST
 # Copyright (C) 2010 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -81,21 +79,18 @@ EOF
 # $1 = src name
 # $2 = dst name
 # $3 = directory path on device
-# $4 = directory name in $PROPRIETARY_COMMON_DIR
+# $4 = directory name in $PROPRIETARY_DEVICE_DIR
 copy_file()
 {
     echo Pulling \"$1\"
     if [[ -z "${ANDROIDFS_DIR}" ]]; then
-        adb pull /$3/$1 $PROPRIETARY_COMMON_DIR/$4/$2
+        adb pull /$3/$1 $PROPRIETARY_DEVICE_DIR/$4/$2
     else
-           # Hint: Uncomment the next line to populate a fresh ANDROIDFS_DIR
-           #       (TODO: Make this a command-line option or something.)
-           # adb pull /$3/$1 ${ANDROIDFS_DIR}/$3/$1
-        cp ${ANDROIDFS_DIR}/$3/$1 $PROPRIETARY_COMMON_DIR/$4/$2
+        cp ${ANDROIDFS_DIR}/$3/$1 $PROPRIETARY_DEVICE_DIR/$4/$2
     fi
 
-    if [[ -f $PROPRIETARY_COMMON_DIR/$4/$2 ]]; then
-        echo   $BASE_PROPRIETARY_COMMON_DIR/$4/$2:$3/$2 \\ >> $COMMON_BLOBS_LIST
+    if [[ -f $PROPRIETARY_DEVICE_DIR/$4/$2 ]]; then
+        echo   $BASE_PROPRIETARY_DEVICE_DIR/$4/$2:$3/$2 \\ >> $DEVICE_BLOBS_LIST
     else
         echo Failed to pull $1. Giving up.
         exit -1
@@ -107,7 +102,7 @@ copy_file()
 #
 # $1 = list of files
 # $2 = directory path on device
-# $3 = directory name in $PROPRIETARY_COMMON_DIR
+# $3 = directory name in $PROPRIETARY_DEVICE_DIR
 copy_files()
 {
     for NAME in $1
@@ -127,50 +122,16 @@ copy_local_files()
     for NAME in $1
     do
         echo Adding \"$NAME\"
-        echo device/$MANUFACTURER/$DEVICE/$3/$NAME:$2/$NAME \\ >> $COMMON_BLOBS_LIST
+        echo device/$MANUFACTURER/$DEVICE/$3/$NAME:$2/$NAME \\ >> $DEVICE_BLOBS_LIST
     done
 }
 
-COMMON_LIBS="
+DEVICE_LIBS="    
     libauth.so
     libbinder.so
     libcamera_client.so
-    libcameraservice.so
-    libchromatix_hi542_ar.so
-    libchromatix_hi542_preview.so
-    libchromatix_hi542_video.so
-    libchromatix_imx074_default_video.so
-    libchromatix_imx074_preview.so
-    libchromatix_imx074_video_hd.so
-    libchromatix_imx074_zsl.so
-    libchromatix_imx091_default_video.so
-    libchromatix_imx091_preview.so
-    libchromatix_imx091_video_hd.so
-    libchromatix_mt9v113_ar.so
-    libchromatix_mt9v113_preview.so
-    libchromatix_mt9v113_video.so
-    libchromatix_ov2720_default_video.so
-    libchromatix_ov2720_hfr.so
-    libchromatix_ov2720_preview.so
-    libchromatix_ov2720_zsl.so
-    libchromatix_ov5647_default_video.so
-    libchromatix_ov5647_preview.so
-    libchromatix_ov5647_sunny_p5v02s_default_video.so
-    libchromatix_ov5647_sunny_p5v02s_preview.so
-    libchromatix_ov5647_sunny_p5v02s_video_hfr.so
-    libchromatix_ov5647_truly_cm6868_default_video.so
-    libchromatix_ov5647_truly_cm6868_preview.so
-    libchromatix_ov5647_truly_cm6868_video_hfr.so
-    libchromatix_ov5647_video_hfr.so
     libchromatix_ov8825_default_video.so
     libchromatix_ov8825_preview.so
-    libchromatix_s5k3l1yx_default_video.so
-    libchromatix_s5k3l1yx_hfr_60fps.so
-    libchromatix_s5k3l1yx_hfr_90fps.so
-    libchromatix_s5k3l1yx_hfr_120fps.so
-    libchromatix_s5k3l1yx_preview.so
-    libchromatix_s5k3l1yx_video_hd.so
-    libchromatix_s5k3l1yx_zsl.so
     libcm.so
     libcommondefs.so
     libcutils.so
@@ -207,9 +168,9 @@ COMMON_LIBS="
     libnl_2.so
     libnv.so
     liboemcamera.so
+    libgemini.so
     liboem_rapi.so
     liboncrpc.so
-    liboverlay.so
     libpbmlib.so
     libpower.so
     libpowermanager.so
@@ -231,11 +192,18 @@ COMMON_LIBS="
     libwms.so
     libwmsts.so
     libwpa_client.so
+    libadc.so
+    libCommandSvc.so
+    libbluedroid.so
+    libbluetooth.so
+    libbluetoothd.so
+    libmm-abl-oem.so
+    libmm-abl.so
 	"
 
-copy_files "$COMMON_LIBS" "system/lib" ""
+copy_files "$DEVICE_LIBS" "system/lib" ""
 
-COMMON_BINS="
+DEVICE_BINS="
     abtfilt
     akmd8963
     amploader
@@ -255,17 +223,23 @@ COMMON_BINS="
     pppd
     qmiproxy
     qmuxd
-    reboot
     rild
     vold
     wiperiface
     wiperiface_v01
     wpa_supplicant
+    rmt_storage
+    usbhub_init
+    usbhub
+    thermald
+    mpdecision
+    gpu_dcvsd
+    mm-qcamera-daemon
 	"
 
-copy_files "$COMMON_BINS" "system/bin" ""
+copy_files "$DEVICE_BINS" "system/bin" ""
 
-COMMON_HW="
+DEVICE_HW="
     camera.msm7627a.so
     gps.default.so
     sensors.msm7627a.so
@@ -273,9 +247,9 @@ COMMON_HW="
     sensors.msm7627a_skua.so
 	"
 
-copy_files "$COMMON_HW" "system/lib/hw" "hw"
+copy_files "$DEVICE_HW" "system/lib/hw" "hw"
 
-COMMON_WIFI="
+DEVICE_WIFI="
     ansi_cprng.ko
     cfg80211.ko
     dal_remotetest.ko
@@ -301,15 +275,15 @@ COMMON_WIFI="
     zram.ko
 	"
 
-copy_files "$COMMON_WIFI" "system/lib/modules" "wifi"
+copy_files "$DEVICE_WIFI" "system/lib/modules" "wifi"
 
 ATH_WIFI="
     ath6kl_sdio.ko
     cfg80211.ko
-"
-copy_files "$COMMON_WIFI" "system/lib/modules/ath6kl" "wifi"
+    "
+copy_files "$ATH_WIFI" "system/lib/modules/ath6kl" "wifi"
 
-COMMON_WLAN_ATH="
+DEVICE_WLAN_ATH="
     athtcmd_ram.bin
     athwlan.bin
     bdata.bin
@@ -318,9 +292,9 @@ COMMON_WLAN_ATH="
     softmac
     utf.bin
 	"	
-copy_files "$COMMON_WLAN_ATH" "system/etc/firmware/ath6k/AR6003/hw2.1.1" "wifi"
+copy_files "$DEVICE_WLAN_ATH" "system/etc/firmware/ath6k/AR6003/hw2.1.1" "wifi"
 
-COMMON_ETC="
+DEVICE_ETC="
     gps.conf
     init.qcom.bt.sh
     init.qcom.coex.sh
@@ -334,7 +308,7 @@ COMMON_ETC="
     vold.origin.fstab
     wiperconfig.xml
     "
-copy_files "$COMMON_ETC" "system/etc" "etc"
+copy_files "$DEVICE_ETC" "system/etc" "etc"
 
 LIB_ADRENO="
     libC2D2.so

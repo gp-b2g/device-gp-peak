@@ -4,6 +4,7 @@ fakeperm &
 sleep 1 &&
 chmod 666 /dev/socket/rild &&
 rilproxy &
+mpdecision &
 chmod 666 /data/misc/wifi/wpa_supplicant.conf
 mount -o rw,remount /dev/block/mmcblk0p12 /system
 chmod 755 /system/b2g/b2g
