@@ -197,9 +197,6 @@ DEVICE_LIBS="
     libwmsts.so
     libadc.so
     libCommandSvc.so
-    libbluedroid.so
-    libbluetooth.so
-    libbluetoothd.so
     libmm-abl-oem.so
     libmm-abl.so
 	"
@@ -215,7 +212,6 @@ DEVICE_BINS="
     ds_fmc_appd
     fmconfig
     fm_qsoc_patches
-    hci_qcomm_init
     hostapd
     hostapd_cli
     mm-pp-daemon
