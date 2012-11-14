@@ -132,6 +132,10 @@ DEVICE_LIBS="
     libcamera_client.so
     libchromatix_ov8825_default_video.so
     libchromatix_ov8825_preview.so
+    libchromatix_s5k3h2y_default_video.so
+    libchromatix_s5k3h2y_preview.so
+    libchromatix_gc0339_default_video.so
+    libchromatix_gc0339_preview.so
     libcm.so
     libcommondefs.so
     libcutils.so
@@ -191,7 +195,6 @@ DEVICE_LIBS="
     libutils.so
     libwms.so
     libwmsts.so
-    libwpa_client.so
     libadc.so
     libCommandSvc.so
     libbluedroid.so
@@ -227,7 +230,6 @@ DEVICE_BINS="
     vold
     wiperiface
     wiperiface_v01
-    wpa_supplicant
     rmt_storage
     usbhub_init
     usbhub

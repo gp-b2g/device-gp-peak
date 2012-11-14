@@ -1,7 +1,8 @@
 $(call inherit-product, device/qcom/common/common.mk)
 PRODUCT_COPY_FILES := \
   device/geeksphone/twist/app_process:system/bin/app_process \
-  device/geeksphone/twist/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc \
+  device/geeksphone/twist/touch.idc:system/usr/idc/sensor00fn11.idc \
+  device/geeksphone/twist/touch.idc:system/usr/idc/himax-touchscreen.idc \
   device/geeksphone/twist/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
   device/geeksphone/twist/vold.fstab:system/etc/vold.fstab \
 
