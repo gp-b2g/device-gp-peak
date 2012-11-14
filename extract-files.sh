@@ -212,6 +212,7 @@ DEVICE_BINS="
     ds_fmc_appd
     fmconfig
     fm_qsoc_patches
+    hci_qcomm_init
     hostapd
     hostapd_cli
     mm-pp-daemon
@@ -229,7 +230,6 @@ DEVICE_BINS="
     rmt_storage
     usbhub_init
     usbhub
-    thermald
     mpdecision
     gpu_dcvsd
     mm-qcamera-daemon
@@ -283,11 +283,9 @@ copy_files "$ATH_WIFI" "system/lib/modules/ath6kl" "wifi"
 
 DEVICE_WLAN_ATH="
     athtcmd_ram.bin
-    athwlan.bin
     bdata.bin
     fw-3.bin
     nullTestFlow.bin
-    softmac
     utf.bin
 	"	
 copy_files "$DEVICE_WLAN_ATH" "system/etc/firmware/ath6k/AR6003/hw2.1.1" "wifi"
