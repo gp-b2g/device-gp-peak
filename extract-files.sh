@@ -176,8 +176,6 @@ DEVICE_LIBS="
     liboem_rapi.so
     liboncrpc.so
     libpbmlib.so
-    libpower.so
-    libpowermanager.so
     libqcci_legacy.so
     libqdi.so
     libqdp.so
@@ -199,6 +197,31 @@ DEVICE_LIBS="
     libCommandSvc.so
     libmm-abl-oem.so
     libmm-abl.so
+    libOmxAacDec.so 
+    libOmxAmrEnc.so
+    libOmxEvrcDec.so
+    libOmxIttiamVdec.so
+    libOmxOn2Dec.so
+    libOmxrv9Dec.so
+    libOmxWmvDec.so
+    libOmxAacEnc.so
+    libOmxAmrRtpDec.so
+    libOmxEvrcEnc.so
+    libOmxIttiamVenc.so
+    libOmxQcelp13Dec.so
+    libOmxVidEnc.so
+    libOmxAdpcmDec.so
+    libOmxAmrwbDec.so
+    libOmxEvrcHwDec.so
+    libOmxMp3Dec.so
+    libOmxQcelp13Enc.so
+    libOmxVp8Dec.so
+    libOmxAmrDec.so
+    libOmxCore.so
+    libOmxH264Dec.so
+    libOmxMpeg4Dec.so
+    libOmxQcelpHwDec.so
+    libOmxWmaDec.so
 	"
 
 copy_files "$DEVICE_LIBS" "system/lib" ""
@@ -228,10 +251,6 @@ DEVICE_BINS="
     wiperiface
     wiperiface_v01
     rmt_storage
-    usbhub_init
-    usbhub
-    mpdecision
-    gpu_dcvsd
     mm-qcamera-daemon
 	"
 
@@ -295,8 +314,6 @@ DEVICE_ETC="
     init.qcom.bt.sh
     init.qcom.coex.sh
     init.qcom.dsds_persist.sh
-    init.qcom.set_dpi.sh
-    init.qcom.usbcdrom.sh
     init.qcom.wifi.sh
     qlog-conf.xml
     vold.emmc.fstab

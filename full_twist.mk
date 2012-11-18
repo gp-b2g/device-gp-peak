@@ -1,4 +1,5 @@
-$(call inherit-product, device/qcom/common/common.mk)
+include device/qcom/msm7627a/msm7627a.mk
+
 PRODUCT_COPY_FILES := \
   device/geeksphone/twist/app_process:system/bin/app_process \
   device/geeksphone/twist/touch.idc:system/usr/idc/sensor00fn11.idc \
@@ -10,9 +11,6 @@ $(call inherit-product-if-exists, vendor/geeksphone/twist/vendor-blobs.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  rild.libpath=/system/lib/libril-qc-1.so \
-  rild.libargs=-d/dev/smd0 \
-  ro.use_data_netmgrd=true \
   ro.moz.ril.simstate_extra_field=true \
   ro.moz.ril.emergency_by_default=true
 
