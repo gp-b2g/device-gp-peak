@@ -233,7 +233,7 @@ DEVICE_BINS="
     hci_qcomm_init
     hostapd
     hostapd_cli
-	rad
+	radish
     mm-pp-daemon
     netmgrd
     port-bridge
