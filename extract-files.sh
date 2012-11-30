@@ -142,6 +142,7 @@ DEVICE_LIBS="
     libDivxDrm.so
     libdivxdrmdecrypt.so
     libdl.so
+    libdsi_netctrl.so
     libdsm.so
     libdsutils.so
     libgps.so
@@ -218,6 +219,7 @@ DEVICE_LIBS="
     libOmxWmaDec.so
     libcnefeatureconfig.so
 	libdsucsd.so
+	libsurfaceflinger.so
 	"
 
 copy_files "$DEVICE_LIBS" "system/lib" ""
