@@ -18,7 +18,7 @@ TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 USES_ARMV7:=true
 
 BOARD_EGL_CFG := device/qcom/msm7627a/egl.cfg
-TARGET_USES_OVERLAY := true
+TARGET_USES_OVERLAY := false
 TARGET_HAVE_BYPASS  := true
 TARGET_USES_SF_BYPASS := false
 WEBCORE_INPAGE_VIDEO := true
