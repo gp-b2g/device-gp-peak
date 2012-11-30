@@ -129,7 +129,6 @@ copy_local_files()
 DEVICE_LIBS="    
     libauth.so
     libbinder.so
-    libcamera_client.so
     libchromatix_ov8825_default_video.so
     libchromatix_ov8825_preview.so
     libchromatix_s5k3h2y_default_video.so
@@ -143,13 +142,10 @@ DEVICE_LIBS="
     libDivxDrm.so
     libdivxdrmdecrypt.so
     libdl.so
-    libdsi_netctrl.so
     libdsm.so
     libdsutils.so
-    libgenlock.so
     libgps.so
     libgps.utils.so
-    libhardware_legacy.so
     libidl.so
     libimage-jpeg-enc-omx-comp.so
     libimage-omx-common.so
@@ -184,8 +180,6 @@ DEVICE_LIBS="
     libqmi_csvt_srvc.so
     libqmiservices.so
     libqueue.so
-    libreference-ril.so
-    libril.so
     libril-qc-1.so
     libril-qc-qmi-1.so
     libril-qcril-hook-oem.so
@@ -222,6 +216,8 @@ DEVICE_LIBS="
     libOmxMpeg4Dec.so
     libOmxQcelpHwDec.so
     libOmxWmaDec.so
+    libcnefeatureconfig.so
+	libdsucsd.so
 	"
 
 copy_files "$DEVICE_LIBS" "system/lib" ""
@@ -230,7 +226,6 @@ DEVICE_BINS="
     abtfilt
     akmd8963
     amploader
-    ATFWD-daemon
     bridgemgrd
     ds_fmc_appd
     fmconfig
@@ -238,18 +233,13 @@ DEVICE_BINS="
     hci_qcomm_init
     hostapd
     hostapd_cli
+	rad
     mm-pp-daemon
-    netcfg
-    netd
     netmgrd
     port-bridge
     pppd
     qmiproxy
     qmuxd
-    rild
-    vold
-    wiperiface
-    wiperiface_v01
     rmt_storage
     mm-qcamera-daemon
 	"
@@ -266,40 +256,6 @@ DEVICE_HW="
 
 copy_files "$DEVICE_HW" "system/lib/hw" "hw"
 
-DEVICE_WIFI="
-    ansi_cprng.ko
-    cfg80211.ko
-    dal_remotetest.ko
-    evbug.ko
-    gspca_main.ko
-    lcd.ko
-    librasdioif.ko
-    mmc_test.ko
-    mtd_erasepart.ko
-    mtd_nandecctest.ko
-    mtd_oobtest.ko
-    mtd_pagetest.ko
-    mtd_readtest.ko
-    mtd_speedtest.ko
-    mtd_stresstest.ko
-    mtd_subpagetest.ko
-    mtd_torturetest.ko
-    scsi_wait_scan.ko
-    sleep_monitor.ko
-    sm_event_driver.ko
-    sm_event_log.ko
-    wlan.ko
-    zram.ko
-	"
-
-copy_files "$DEVICE_WIFI" "system/lib/modules" "wifi"
-
-ATH_WIFI="
-    ath6kl_sdio.ko
-    cfg80211.ko
-    "
-copy_files "$ATH_WIFI" "system/lib/modules/ath6kl" "wifi"
-
 DEVICE_WLAN_ATH="
     athtcmd_ram.bin
     bdata.bin
@@ -313,18 +269,14 @@ DEVICE_ETC="
     gps.conf
     init.qcom.bt.sh
     init.qcom.coex.sh
-    init.qcom.dsds_persist.sh
     init.qcom.wifi.sh
-    qlog-conf.xml
     vold.emmc.fstab
     vold.fat.fstab
     vold.origin.fstab
-    wiperconfig.xml
     "
 copy_files "$DEVICE_ETC" "system/etc" "etc"
 
 LIB_ADRENO="
-    libC2D2.so
     libgsl.so
     libOpenVG.so
     libsc-a2xx.so
@@ -347,6 +299,3 @@ LIB_FW_ADRENO="
     yamato_pfp.fw
     "
 copy_files "$LIB_FW_ADRENO" "system/etc/firmware" "adreno"
-
-
-
