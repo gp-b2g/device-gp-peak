@@ -6,6 +6,7 @@ PRODUCT_COPY_FILES := \
   device/geeksphone/twist/touch.idc:system/usr/idc/himax-touchscreen.idc \
   device/geeksphone/twist/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
   device/geeksphone/twist/vold.fstab:system/etc/vold.fstab \
+  device/geeksphone/twist/media_profiles.xml:system/etc/media_profiles.xml
 
 $(call inherit-product-if-exists, vendor/geeksphone/twist/vendor-blobs.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full.mk)
