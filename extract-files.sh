@@ -165,6 +165,8 @@ DEVICE_LIBS="
     libmmipl.so
     libmmjpeg.so
     libmmstillomx.so
+	libmmparser.so
+	libmmosal.so
     libnetmgr.so
     libnl_2.so
     libnv.so
