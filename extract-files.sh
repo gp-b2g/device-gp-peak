@@ -48,7 +48,6 @@ do
     mkdir -p $PROPRIETARY_DEVICE_DIR/$NAME
 done
 
-
 DEVICE_BLOBS_LIST=../../../vendor/$MANUFACTURER/$DEVICE/vendor-blobs.mk
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > $DEVICE_BLOBS_LIST
@@ -72,6 +71,27 @@ PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.
 # All the blobs
 PRODUCT_COPY_FILES += \\
 EOF
+
+# copy_files_to_obj_lib
+# Add blob into out/target/product/XXX/obj/lib for compile time checking by some files.
+# In order to copy the same file into two different destination path by PRODUCT_COPY_FILES,
+# this function duplicate candidate to another name then add it into PRODUCT_COPY_FILES.
+# Then change candidate to original name in target of PRODUCT_COPY_FILES.
+# $1 = src name
+# $2 = additional path under $PROPRIETARY_DEVICE_DIR
+copy_files_to_obj_lib()
+{
+    for NAME in $1
+    do
+        if [[ -f $PROPRIETARY_DEVICE_DIR/$2/$NAME ]]; then
+            cp $PROPRIETARY_DEVICE_DIR/$2/$NAME "$PROPRIETARY_DEVICE_DIR/$2/obj$NAME"
+            echo $BASE_PROPRIETARY_DEVICE_DIR/$2/obj$NAME:obj/lib/$NAME \\ >> $DEVICE_BLOBS_LIST
+        else
+            echo Failed to copy $1 from existing backup blobs to obj/lib. Giving up.
+            exit -1
+        fi
+    done
+}
 
 # copy_file
 # pull file from the device and adds the file to the list of blobs
@@ -148,7 +168,6 @@ DEVICE_LIBS="
     libgps.so
     libgps.utils.so
     libidl.so
-    libimage-jpeg-enc-omx-comp.so
     libimage-omx-common.so
     libloc_adapter.so
     libloc_api-rpc-qc.so
@@ -159,12 +178,9 @@ DEVICE_LIBS="
     libmmcamera_frameproc.so
     libmmcamera_hdr_lib.so
     libmmcamera_image_stab.so
-    libmmcamera_interface2.so
     libmmcamera_statsproc31.so
     libmmcamera_wavelet_lib.so
     libmmipl.so
-    libmmjpeg.so
-    libmmstillomx.so
 	libmmparser.so
 	libmmosal.so
     libnetmgr.so
@@ -219,12 +235,25 @@ DEVICE_LIBS="
     libOmxMpeg4Dec.so
     libOmxQcelpHwDec.so
     libOmxWmaDec.so
-    libcnefeatureconfig.so
 	libdsucsd.so
-	libsurfaceflinger.so
+	libcnefeatureconfig.so
+	libmmjpeg.so
+    libmmstillomx.so
+	libmmcamera_interface2.so
+    libimage-jpeg-enc-omx-comp.so
 	"
 
 copy_files "$DEVICE_LIBS" "system/lib" ""
+
+COMMON_OBJ_LIBS="
+	libcnefeatureconfig.so
+	libmmjpeg.so
+    libmmstillomx.so
+	libmmcamera_interface2.so
+    libimage-jpeg-enc-omx-comp.so
+	"
+
+copy_files_to_obj_lib "$COMMON_OBJ_LIBS" ""
 
 DEVICE_BINS="
     abtfilt
