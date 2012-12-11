@@ -183,6 +183,17 @@ on post-fs
 
 	# create the fota directories to store delta update packages
 	mkdir /cache/fota 0777 system cache
+	
+	# set permissions for b2g
+	chmod 755 /system/b2g/b2g
+    chmod 755 /system/b2g/plugin-container
+    chmod 755 /system/b2g/updater
+    chmod 4755 /system/bin/mksh
+    chmod 777 /data/local
+    chmod 777 /system/b2g
+    chown shell.shell /system/b2g/*
+    chown shell.shell /system/b2g/*/*
+    chown shell.shell /system/b2g/*/*/*
 
 on post-fs-data
     # We chown/chmod /data again so because mount is run as root + defaults
