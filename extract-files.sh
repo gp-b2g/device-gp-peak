@@ -202,6 +202,7 @@ DEVICE_LIBS="
     libril-qc-1.so
     libril-qc-qmi-1.so
     libril-qcril-hook-oem.so
+	libhwrpc.so
     librpc.so
     libutils.so
     libwms.so
@@ -267,13 +268,11 @@ DEVICE_BINS="
     hostapd
     hostapd_cli
 	radish
-    mm-pp-daemon
     netmgrd
     port-bridge
     pppd
     qmiproxy
     qmuxd
-    rmt_storage
     mm-qcamera-daemon
 	"
 
