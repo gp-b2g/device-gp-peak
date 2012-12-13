@@ -16,7 +16,6 @@ persist.rild.nitz_short_ons_3=
 ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
 keyguard.no_require_sim=1
-lpa.decode=true
 debug.sf.hw=1
 debug.composition.7x27A.type=mdp
 debug.composition.7x25A.type=mdp
@@ -24,39 +23,21 @@ debug.composition.8x25.type=dyn
 hwui.render_dirty_regions.7x27A=true
 hwui.render_dirty_regions.7x25A=true
 hwui.render_dirty_regions.8625=true
-debug.enabletr.7x27A=true
-debug.enabletr.7x25A=true
-debug.enabletr.8625=true
-dalvik.vm.heapsize=24m
-
-#
-# system props for the cne module
-#
-persist.cne.bat.range.low.med=30
-persist.cne.bat.range.med.high=60
-persist.cne.loc.policy.op=/system/etc/OperatorPolicy.xml
-persist.cne.loc.policy.user=/system/etc/UserPolicy.xml
-persist.cne.bwbased.rat.sel=false
-persist.cne.snsr.based.rat.mgt=false
-persist.cne.bat.based.rat.mgt=false
-persist.cne.rat.acq.time.out=30000
-persist.cne.rat.acq.retry.tout=0
-persist.cne.fmc.init.time.out=30
-persist.cne.fmc.comm.time.out=130
-persist.cne.fmc.retry=false
-persist.cne.feature=0
+debug.enabletr.7x27A=false
+debug.enabletr.7x25A=false
+debug.enabletr.8625=false
+debug.hwc.dynThreshold=1.91
 
 #
 # system props for the MM modules
 #
 media.stagefright.enable-player=true
-media.stagefright.enable-meta=false
+media.stagefright.enable-meta=true
 media.stagefright.enable-scan=true
 media.stagefright.enable-http=true
 media.stagefright.enable-fma2dp=true
 media.stagefright.enable-aac=true
 media.stagefright.enable-qcp=true
-
 
 #
 # system prop for audio post processing
@@ -104,19 +85,6 @@ ro.bluetooth.remote.autoconnect=true
 #0: Always discoverable
 #debug.bt.discoverable_time=0
 
-#
-# System prop to disable strict mode flash on display
-#
-persist.sys.strictmode.visual=false
-
-#
-# System prop to enable/disable OMH. Enabled by default
-#
-persist.omh.enabled=1
-
-#System prop to enable ehrpd capability
-ro.config.ehrpd=true
-
 # System property for cabl
 ro.qualcomm.cabl=1
 
@@ -129,7 +97,7 @@ ro.ril.transmitpower=true
 #System prop to determine availability of
 #analog fm path
 #
-ro.fm.analogpath.supported=true
+ro.fm.analogpath.supported=false
 
 #
 #System property for FM transmitter
@@ -147,13 +115,9 @@ ro.fm.mulinst.recording.support=false
 ro.emmc.sdcard.partition=18
 
 #
-# system property to enforce Phone Mode view
+# Turn off tiled rendering
 #
-ro.screen.layout=normal
-#
-#System prop for setting the pixel format
-#
-ro.staticwallpaper.pixelformat=RGB_565
+debug.enabletr=false
 
 #
 #System prop for disabling the meta data mode for encoder
@@ -169,11 +133,6 @@ persist.fuse_sdcard=false
 # System prop for using landscape preview layout in camera
 #
 debug.camera.landscape=true
-
-#
-# System prop for capping scroll velocity
-#
-ro.max.fling_velocity=4000
 
 #
 # System prop for enabling discontinuity for HLS Variant Playlist

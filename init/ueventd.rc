@@ -53,6 +53,7 @@
 /dev/pmem_camera*         0660   system     camera
 /dev/oncrpc/*             0660   root       qcom_oncrpc
 /dev/oncrpc/3000006b:00010000    0660   radio  qcom_oncrpc
+/dev/oncrpc/30000000:8d1fd007	 0660   radio  qcom_oncrpc
 /dev/gss                  0660   gps        gps
 /dev/adsp/*               0666   system     audio
 /dev/snd/*                0660   system     audio
