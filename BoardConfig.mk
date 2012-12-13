@@ -6,6 +6,8 @@ TARGET_CPU_SMP := true
 
 BOARD_EGL_CFG := device/qcom/msm7627a/egl.cfg
 
+USE_OPENGL_RENDERER := true
+
 # Enable WebGL
 ENABLE_WEBGL := true
 

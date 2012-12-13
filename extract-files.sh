@@ -202,7 +202,6 @@ DEVICE_LIBS="
     libril-qc-1.so
     libril-qc-qmi-1.so
     libril-qcril-hook-oem.so
-	libhwrpc.so
     librpc.so
     libutils.so
     libwms.so
