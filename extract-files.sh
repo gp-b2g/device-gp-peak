@@ -241,6 +241,8 @@ DEVICE_LIBS="
     libmmstillomx.so
 	libmmcamera_interface2.so
     libimage-jpeg-enc-omx-comp.so
+	libulp2.so
+	libulp.so
 	"
 
 copy_files "$DEVICE_LIBS" "system/lib" ""
