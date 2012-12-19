@@ -259,9 +259,6 @@ DEVICE_BINS="
     qmuxd
     mm-qcamera-daemon
 	rmt_storage
-	thermald
-	mpdecision
-	gpu_dcvsd
 	"
 
 copy_files "$DEVICE_BINS" "system/bin" ""

@@ -58,23 +58,7 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
         user system
         group system camera inet
 
-service thermald /system/bin/thermald
-   class late_start
-   user root
-   group root
-   disabled
-
-service mpdecision /system/bin/mpdecision --no_sleep --avg_comp --debug
-        class late_start
-	user root
-	disabled
-
 on property:sys.radio.shutdown=true
    exec /system/bin/sh /system/etc/init.qcom.efs.sync.sh
    user root
    group root
-
-service gpu_dcvsd /system/bin/gpu_dcvsd
-    class late_start
-    user root
-    oneshot
