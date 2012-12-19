@@ -15,7 +15,6 @@ persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
-keyguard.no_require_sim=1
 debug.sf.hw=1
 debug.composition.7x27A.type=mdp
 debug.composition.7x25A.type=mdp
@@ -29,20 +28,33 @@ debug.enabletr.8625=false
 debug.hwc.dynThreshold=1.91
 
 #
+# system props for the cne module
+#
+persist.cne.UseCne=none
+persist.cne.bat.range.low.med=30
+persist.cne.bat.range.med.high=60
+persist.cne.loc.policy.op=/system/etc/OperatorPolicy.xml
+persist.cne.loc.policy.user=/system/etc/UserPolicy.xml
+persist.cne.bwbased.rat.sel=false
+persist.cne.snsr.based.rat.mgt=false
+persist.cne.bat.based.rat.mgt=false
+persist.cne.rat.acq.time.out=30000
+persist.cne.rat.acq.retry.tout=0
+persist.cne.fmc.mode=false
+persist.cne.fmc.init.time.out=30
+persist.cne.fmc.comm.time.out=130
+persist.cne.fmc.retry=false
+
+#
 # system props for the MM modules
 #
 media.stagefright.enable-player=true
-media.stagefright.enable-meta=true
+media.stagefright.enable-meta=false
 media.stagefright.enable-scan=true
 media.stagefright.enable-http=true
 media.stagefright.enable-fma2dp=true
 media.stagefright.enable-aac=true
 media.stagefright.enable-qcp=true
-
-#
-# system prop for audio post processing
-#
-audio.legacy.postproc=true
 
 #
 # system prop for opengles version
@@ -85,13 +97,21 @@ ro.bluetooth.remote.autoconnect=true
 #0: Always discoverable
 #debug.bt.discoverable_time=0
 
-# System property for cabl
-ro.qualcomm.cabl=1
+#
+# System prop to disable strict mode flash on display
+#
+persist.sys.strictmode.visual=false
 
 #
-# System prop for sending transmit power request to RIL during WiFi hotspot on/off
+# System prop to enable/disable OMH. Enabled by default
 #
-ro.ril.transmitpower=true
+persist.omh.enabled=1
+
+#System prop to enable ehrpd capability
+ro.config.ehrpd=true
+
+# System property for cabl
+ro.qualcomm.cabl=1
 
 #
 #System prop to determine availability of
@@ -108,6 +128,10 @@ ro.fm.transmitter=false
 #System property for single instance recording
 #
 ro.fm.mulinst.recording.support=false
+#
+#System property for msm 
+#
+ro.hw_plat=7x27a
 
 #
 # system props for SD card emulation of emmc partition
@@ -115,9 +139,17 @@ ro.fm.mulinst.recording.support=false
 ro.emmc.sdcard.partition=18
 
 #
+# system property to enforce Phone Mode view
+#
+ro.screen.layout=normal
+#
 # Turn off tiled rendering
 #
 debug.enabletr=false
+#
+#System prop for setting the pixel format
+#
+ro.staticwallpaper.pixelformat=RGB_565
 
 #
 #System prop for disabling the meta data mode for encoder
@@ -135,15 +167,16 @@ persist.fuse_sdcard=false
 debug.camera.landscape=true
 
 #
+# System prop for capping scroll velocity
+#
+ro.max.fling_velocity=4000
+
+#
+# System prop for disabling the rendering dirty regions
+#
+hwui.render_dirty_regions=false
+
+#
 # System prop for enabling discontinuity for HLS Variant Playlist
 #
 httplive.enable.discontinuity=true
-
-#
-# Enable Dynamic sampling to help with cases like mp3 playback.
-#
-dev.pm.dyn_samplingrate=1
-#
-# On Strider below period is found to improve power numbers for AAC MP4
-#
-dev.pm.dyn_sample_period=700000

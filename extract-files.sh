@@ -148,24 +148,19 @@ copy_local_files()
 
 DEVICE_LIBS="    
     libauth.so
-    libbinder.so
-    libchromatix_ov8825_default_video.so
-    libchromatix_ov8825_preview.so
     libchromatix_s5k3h2y_default_video.so
     libchromatix_s5k3h2y_preview.so
     libchromatix_gc0339_default_video.so
     libchromatix_gc0339_preview.so
     libcm.so
     libcommondefs.so
-    libcutils.so
     libdiag.so
-    libDivxDrm.so
     libdivxdrmdecrypt.so
-    libdl.so
-    libdsi_netctrl.so
-    libdsm.so
-    libdsutils.so
-    libgps.so
+	libdsi_netctrl.so
+	libdsm.so
+	libdss.so
+	libdsucsd.so
+	libdsutils.so
     libgps.utils.so
     libidl.so
     libimage-omx-common.so
@@ -173,7 +168,6 @@ DEVICE_LIBS="
     libloc_api-rpc-qc.so
     libloc_eng.so
     libloc_ext.so
-    libminui.so
     libmmcamera_faceproc.so
     libmmcamera_frameproc.so
     libmmcamera_hdr_lib.so
@@ -184,11 +178,9 @@ DEVICE_LIBS="
 	libmmparser.so
 	libmmosal.so
     libnetmgr.so
-    libnl_2.so
     libnv.so
     liboemcamera.so
     libgemini.so
-    liboem_rapi.so
     liboncrpc.so
     libpbmlib.so
     libqcci_legacy.so
@@ -202,8 +194,6 @@ DEVICE_LIBS="
     libril-qc-1.so
     libril-qc-qmi-1.so
     libril-qcril-hook-oem.so
-    librpc.so
-    libutils.so
     libwms.so
     libwmsts.so
     libadc.so
@@ -235,14 +225,11 @@ DEVICE_LIBS="
     libOmxMpeg4Dec.so
     libOmxQcelpHwDec.so
     libOmxWmaDec.so
-	libdsucsd.so
 	libcnefeatureconfig.so
 	libmmjpeg.so
     libmmstillomx.so
 	libmmcamera_interface2.so
     libimage-jpeg-enc-omx-comp.so
-	libulp2.so
-	libulp.so
 	"
 
 copy_files "$DEVICE_LIBS" "system/lib" ""
@@ -262,19 +249,19 @@ DEVICE_BINS="
     akmd8963
     amploader
     bridgemgrd
-    ds_fmc_appd
     fmconfig
     fm_qsoc_patches
     hci_qcomm_init
-    hostapd
-    hostapd_cli
 	radish
     netmgrd
     port-bridge
-    pppd
     qmiproxy
     qmuxd
     mm-qcamera-daemon
+	rmt_storage
+	thermald
+	mpdecision
+	gpu_dcvsd
 	"
 
 copy_files "$DEVICE_BINS" "system/bin" ""
@@ -282,9 +269,6 @@ copy_files "$DEVICE_BINS" "system/bin" ""
 DEVICE_HW="
     camera.msm7627a.so
     gps.default.so
-    sensors.msm7627a.so
-    sensors.msm7627a_sku7.so
-    sensors.msm7627a_skua.so
 	"
 
 copy_files "$DEVICE_HW" "system/lib/hw" "hw"
@@ -301,11 +285,7 @@ copy_files "$DEVICE_WLAN_ATH" "system/etc/firmware/ath6k/AR6003/hw2.1.1" "wifi"
 DEVICE_ETC="
     gps.conf
     init.qcom.bt.sh
-    init.qcom.coex.sh
-    init.qcom.wifi.sh
-    vold.emmc.fstab
-    vold.fat.fstab
-    vold.origin.fstab
+	thermald-8x25.conf
     "
 copy_files "$DEVICE_ETC" "system/etc" "etc"
 

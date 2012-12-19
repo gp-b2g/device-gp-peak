@@ -4,8 +4,10 @@ PRODUCT_COPY_FILES := \
   device/geeksphone/twist/touch.idc:system/usr/idc/maxtouch-ts154.idc \
   device/geeksphone/twist/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
   device/geeksphone/twist/vold.fstab:system/etc/vold.fstab \
+  device/geeksphone/twist/gps.conf:system/etc/gps.conf \
   device/geeksphone/twist/media_profiles.xml:system/etc/media_profiles.xml \
   device/geeksphone/twist/init/init.rc:root/init.rc \
+  device/geeksphone/twist/init/init.target.rc:root/init.target.rc \
   device/geeksphone/twist/init/init.qcom.usb.rc:root/init.qcom.usb.rc \
   device/geeksphone/twist/init/ueventd.rc:root/ueventd.rc
 
