@@ -283,7 +283,6 @@ DEVICE_WLAN_ATH="
 copy_files "$DEVICE_WLAN_ATH" "system/etc/firmware/ath6k/AR6003/hw2.1.1" "wifi"
 
 DEVICE_ETC="
-    gps.conf
     init.qcom.bt.sh
 	thermald-8x25.conf
     "
