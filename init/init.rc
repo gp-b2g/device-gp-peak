@@ -22,6 +22,7 @@ loglevel 3
     export ANDROID_ASSETS /system/app
     export ANDROID_DATA /data
     export EXTERNAL_STORAGE /mnt/sdcard
+    export PHONE_STORAGE /mnt/emmc
     export ASEC_MOUNTPOINT /mnt/asec
     export LOOP_MOUNTPOINT /mnt/obb
     export BOOTCLASSPATH /system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar:/system/framework/filterfw.jar
@@ -137,8 +138,8 @@ on emmc-fs
     chmod 0755 /system/b2g/plugin-container
     chmod 0755 /system/b2g/updater
     wait /dev/block/mmcblk0p13
-    exec /system/bin/e2fsck -y /dev/block/mmcblk0p13
-    mount ext4 /dev/block/mmcblk0p13 /data nosuid nodev barrier=1 noauto_da_alloc
+    exec /system/bin/e2fsck -p /dev/block/mmcblk0p13
+    mount ext4 /dev/block/mmcblk0p13 /data nosuid nodev rw barrier=1 noauto_da_alloc
     mount ext4 /dev/block/mmcblk0p14 /persist nosuid nodev barrier=1
     mount ext4 /dev/block/mmcblk0p15 /cache nosuid nodev barrier=1
 	chown system system /sys/bus/platform/drivers/msm-battery/charge_control
