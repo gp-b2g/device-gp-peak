@@ -155,6 +155,7 @@ DEVICE_LIBS="
     libcm.so
     libcommondefs.so
     libdiag.so
+	libDivxDrm.so
     libdivxdrmdecrypt.so
 	libdsi_netctrl.so
 	libdsm.so

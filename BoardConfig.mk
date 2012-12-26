@@ -3,13 +3,31 @@ include device/qcom/msm7627a/BoardConfig.mk
 TARGET_NO_BOOTLOADER := true
 
 TARGET_CPU_SMP := true
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+ARCH_ARM_HAVE_TLS_REGISTER := true
+ARCH_ARM_HAVE_ARMV7A := true
+TARGET_ARCH_VARIANT_FPU := neon
+ARCH_ARM_HAVE_VFP := true
+ARCH_ARM_HAVE_NEON := true
+TARGET_USE_SPARROW_BIONIC_OPTIMIZATION := true
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 
 BOARD_EGL_CFG := device/qcom/msm7627a/egl.cfg
 
 USE_OPENGL_RENDERER := true
+TARGET_USES_ION := false
+TARGET_USES_OVERLAY := false
+TARGET_USES_SF_BYPASS := true
+TARGET_USES_C2D_COMPOSITION := false
+BOARD_CPU_COLOR_CONVERT:= true
+TARGET_NO_HW_VSYNC := true
 
 # Enable WebGL
 ENABLE_WEBGL := true
+TARGET_FORCE_CPU_UPLOAD := true
 
 # Camera
 USE_CAMERA_STUB:=false

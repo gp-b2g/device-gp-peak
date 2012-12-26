@@ -3,7 +3,7 @@ include device/qcom/msm7627a/msm7627a.mk
 PRODUCT_COPY_FILES := \
   device/geeksphone/twist/touch.idc:system/usr/idc/maxtouch-ts154.idc \
   device/geeksphone/twist/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-  device/geeksphone/twist/vold.fstab:system/etc/vold.fstab \
+  device/geeksphone/twist/vold.fstab:system/etc/vold.origin.fstab \
   device/geeksphone/twist/gps.conf:system/etc/gps.conf \
   device/geeksphone/twist/media_profiles.xml:system/etc/media_profiles.xml \
   device/geeksphone/twist/init/init.rc:root/init.rc \
