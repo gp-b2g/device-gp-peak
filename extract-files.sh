@@ -199,6 +199,7 @@ DEVICE_LIBS="
     libwmsts.so
     libadc.so
     libCommandSvc.so
+	libmm-adspsvc.so
     libmm-abl-oem.so
     libmm-abl.so
     libOmxAacDec.so 
