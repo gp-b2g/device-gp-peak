@@ -18,6 +18,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.moz.ril.simstate_extra_field=true \
   ro.moz.ril.emergency_by_default=true
 
+PRODUCT_PACKAGES += \
+  librecovery
+
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := full_twist
 PRODUCT_DEVICE := twist
