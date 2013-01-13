@@ -146,7 +146,8 @@ copy_local_files()
     done
 }
 
-DEVICE_LIBS="    
+DEVICE_LIBS="
+	libaudioeq.so
     libauth.so
     libchromatix_s5k3h2y_default_video.so
     libchromatix_s5k3h2y_preview.so
@@ -202,7 +203,7 @@ DEVICE_LIBS="
 	libmm-adspsvc.so
     libmm-abl-oem.so
     libmm-abl.so
-    libOmxAacDec.so 
+    libOmxAacDec.so
     libOmxAmrEnc.so
     libOmxEvrcDec.so
     libOmxIttiamVdec.so
@@ -229,6 +230,7 @@ DEVICE_LIBS="
     libOmxWmaDec.so
 	libcnefeatureconfig.so
 	libmmjpeg.so
+	librpc.so
     libmmstillomx.so
 	libmmcamera_interface2.so
     libimage-jpeg-enc-omx-comp.so
@@ -283,7 +285,7 @@ copy_files "$DEVICE_WLAN_ATH" "system/etc/firmware/ath6k/AR6003/hw2.1.1" "wifi"
 
 DEVICE_ETC="
     init.qcom.bt.sh
-	thermald-8x25.conf
+	AudioFilter.csv
     "
 copy_files "$DEVICE_ETC" "system/etc" "etc"
 
