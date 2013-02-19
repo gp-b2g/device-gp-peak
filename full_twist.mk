@@ -10,6 +10,7 @@ PRODUCT_COPY_FILES := \
   device/geeksphone/twist/init/init.target.rc:root/init.target.rc \
   device/geeksphone/twist/init/init.qcom.usb.rc:root/init.qcom.usb.rc \
   device/geeksphone/twist/init/ueventd.rc:root/ueventd.rc \
+  device/geeksphone/twist/init/charger:root/charger \
   device/geeksphone/twist/audio.conf:system/etc/bluetooth/audio.conf \
   device/geeksphone/twist/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh
 
