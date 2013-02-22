@@ -293,8 +293,6 @@ LIB_ADRENO="
     libgsl.so
     libOpenVG.so
     libsc-a2xx.so
-	libC2D2.so
-	libc2d2_z180.so	
     "
 copy_files "$LIB_ADRENO" "system/lib" "adreno"
 
