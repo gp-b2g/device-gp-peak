@@ -21,8 +21,15 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SPARESIZE := 128
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom loglevel=1
 
-#librecovery
+# Recovery
 ENABLE_LIBRECOVERY := true
+
+# librecovery
+RECOVERY_EXTERNAL_STORAGE := /sdcard
+
+SYSTEM_FS_TYPE            := ext4
+SYSTEM_PARTITION_TYPE     := EMMC
+SYSTEM_LOCATION           := /dev/block/mmcblk0p12
 
 # Misc
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 471859200
