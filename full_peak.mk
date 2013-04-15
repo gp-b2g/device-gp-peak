@@ -20,6 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full.mk)
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.moz.ril.simstate_extra_field=true \
   ro.moz.ril.emergency_by_default=true \
+  ro.moz.ril.extra_int_2nd_call=true \
   ro.moz.fm.noAnalog=true
 
 PRODUCT_PACKAGES += \
