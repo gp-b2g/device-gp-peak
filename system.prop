@@ -15,17 +15,30 @@ persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
-debug.sf.hw=1
-debug.composition.7x27A.type=dyn
-debug.composition.7x25A.type=dyn
-debug.composition.8x25.type=dyn
-hwui.render_dirty_regions.7x27A=true
-hwui.render_dirty_regions.7x25A=true
-hwui.render_dirty_regions.8625=true
+debug.composition.7x27A.type=mdp
+debug.composition.7x25A.type=mdp
+debug.composition.8x25.type=gpu
+debug.composition.type=gpu
+hwui.render_dirty_regions.7x27A=false
+hwui.render_dirty_regions.7x25A=false
+hwui.render_dirty_regions.8625=false
 debug.enabletr.7x27A=false
 debug.enabletr.7x25A=false
 debug.enabletr.8625=false
 debug.hwc.dynThreshold=1.91
+qemu.sf.lcd_density=240
+ro.sf.lcd_density=240
+ro.lcd_density=240
+ro.kernel.android.checkjni=0
+debug.performance.tuning=1
+persist.sys.use_dithering=0
+video.accelerate.hw=1
+
+#Force GPU Rendering on 2d Operations
+debug.sf.hw=1
+debug.egl.profiler=1
+debug.egl.hw=1
+persist.sys.ui.hw=1
 
 #
 # system props for the cne module
@@ -44,6 +57,7 @@ persist.cne.fmc.mode=false
 persist.cne.fmc.init.time.out=30
 persist.cne.fmc.comm.time.out=130
 persist.cne.fmc.retry=false
+persist.cne.feature=0
 
 #
 # system props for the MM modules
@@ -55,6 +69,12 @@ media.stagefright.enable-http=true
 media.stagefright.enable-fma2dp=true
 media.stagefright.enable-aac=true
 media.stagefright.enable-qcp=true
+
+
+#
+# system prop for audio post processing
+#
+audio.legacy.postproc=true
 
 #
 # system prop for opengles version
@@ -167,11 +187,6 @@ persist.fuse_sdcard=false
 debug.camera.landscape=true
 
 #
-# System prop for capping scroll velocity
-#
-ro.max.fling_velocity=4000
-
-#
 # System prop for disabling the rendering dirty regions
 #
 hwui.render_dirty_regions=false
@@ -183,3 +198,27 @@ httplive.enable.discontinuity=true
 
 # for enable poweroff charging feature
 persist.pwroffcharging.enable=1
+
+#
+# System prop for modify the mode of input devices
+#
+persist.sys.devinputperm=660
+
+#
+# Enable Dynamic sampling to help with cases like mp3 playback.
+#
+dev.pm.dyn_samplingrate=1
+#
+# On Strider below period is found to improve power numbers for AAC MP4
+#
+dev.pm.dyn_sample_period=700000
+dalvik.vm.checkjni=false
+#
+#  System prop for mapping to TTY Device for CSVT
+#
+hw.tty.vtdevice=/dev/smd11
+
+#
+#System prop for force play camera shutter tone
+#
+ro.camera.sound.forced=1
