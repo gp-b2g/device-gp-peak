@@ -60,5 +60,3 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
 
 on property:sys.radio.shutdown=true
    exec /system/bin/sh /system/etc/init.qcom.efs.sync.sh
-   user root
-   group root

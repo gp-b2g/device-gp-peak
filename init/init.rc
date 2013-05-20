@@ -1,4 +1,3 @@
-import /init.b2g.rc
 on early-init
     # Set init and its forked children's oom_adj.
     write /proc/1/oom_adj -16
@@ -443,6 +442,11 @@ on property:persist.sys.usb.config=*
 
 ## Daemon processes to be run by init.
 ##
+# Fix duplicated icon with old Marketplace
+service fix_market /system/xbin/fix_marketplace.sh
+    class main
+    oneshot
+
 service ueventd /sbin/ueventd
     class core
     critical
@@ -577,3 +581,5 @@ service akmd /system/bin/akmd8963
     user compass
     group system compass misc input
     oneshot
+
+import /init.b2g.rc

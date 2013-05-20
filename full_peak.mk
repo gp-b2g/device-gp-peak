@@ -12,7 +12,8 @@ PRODUCT_COPY_FILES := \
   device/geeksphone/peak/init/ueventd.rc:root/ueventd.rc \
   device/geeksphone/peak/init/charger:root/charger \
   device/geeksphone/peak/audio.conf:system/etc/bluetooth/audio.conf \
-  device/geeksphone/peak/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh
+  device/geeksphone/peak/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
+  device/geeksphone/peak/prebuilt/fix_marketplace.sh:system/xbin/fix_marketplace.sh
 
 $(call inherit-product-if-exists, vendor/geeksphone/peak/vendor-blobs.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full.mk)
@@ -25,7 +26,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.moz.fm.noAnalog=true
 
 PRODUCT_PACKAGES += \
-  librecovery
+  librecovery \
+  busybox
 
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := full_peak
