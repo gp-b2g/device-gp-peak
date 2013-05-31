@@ -230,7 +230,6 @@ DEVICE_LIBS="
     libOmxWmaDec.so
 	libcnefeatureconfig.so
 	libmmjpeg.so
-	librpc.so
     libmmstillomx.so
 	libmmcamera_interface2.so
     libimage-jpeg-enc-omx-comp.so

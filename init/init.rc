@@ -582,3 +582,7 @@ service akmd /system/bin/akmd8963
     user compass
     group system compass misc input
     oneshot
+
+on property:sys.need.restart.rild=1
+    stop ril-daemon
+    start ril-daemon

@@ -22,6 +22,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.moz.ril.simstate_extra_field=true \
   ro.moz.ril.emergency_by_default=true \
   ro.moz.ril.extra_int_2nd_call=true \
+  sys.need.restart.rild=1 \
   ro.moz.fm.noAnalog=true
 
 PRODUCT_PACKAGES += \
