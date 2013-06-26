@@ -15,6 +15,12 @@ PRODUCT_COPY_FILES := \
   device/geeksphone/peak/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
   device/geeksphone/peak/prebuilt/fix_marketplace.sh:system/xbin/fix_marketplace.sh
 
+ifneq (linux,$(HOST_OS))
+PRODUCT_COPY_FILES += \
+  device/geeksphone/peak/prebuilt/cfg80211.ko:system/lib/modules/ath6kl/cfg80211.ko \
+  device/geeksphone/peak/prebuilt/ath6kl_sdio.ko:system/lib/modules/ath6kl/ath6kl_sdio.ko
+endif
+
 $(call inherit-product-if-exists, vendor/geeksphone/peak/vendor-blobs.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full.mk)
 

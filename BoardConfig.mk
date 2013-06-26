@@ -23,6 +23,9 @@ USE_CAMERA_STUB:=false
 BOARD_CAMERA_LIBRARIES := libcamera
 
 # Kernel
+ifneq (linux,$(HOST_OS))
+TARGET_PREBUILT_KERNEL := device/geeksphone/peak/prebuilt/kernel
+endif
 TARGET_NO_KERNEL := false
 KERNEL_DEFCONFIG := C8680_defconfig
 BOARD_KERNEL_BASE    := 0x00200000
