@@ -3,6 +3,7 @@ include device/qcom/msm7627a/msm7627a.mk
 PRODUCT_COPY_FILES := \
   device/geeksphone/peak/touch.idc:system/usr/idc/maxtouch-ts154.idc \
   device/geeksphone/peak/touch.idc:system/usr/idc/himax-touchscreen.idc \
+  device/geeksphone/peak/vold.fstab:system/etc/vold.fstab \
   device/geeksphone/peak/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
   device/geeksphone/peak/gps.conf:system/etc/gps.conf \
   device/geeksphone/peak/media_profiles.xml:system/etc/media_profiles.xml \
@@ -29,6 +30,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.moz.ril.emergency_by_default=true \
   ro.moz.ril.extra_int_2nd_call=true \
   sys.need.restart.rild=1 \
+  ro.moz.omx.hw.max_width=960 \
+  ro.moz.omx.hw.max_height=540 \
   ro.moz.fm.noAnalog=true
 
 PRODUCT_PACKAGES += \
@@ -44,3 +47,7 @@ PRODUCT_MODEL := GP-Peak
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
   persist.usb.serialno=$(PRODUCT_NAME)
+
+# Gaia currently needs to specify the default scale value manually or pictures
+# with correct resolution will not be applied.
+GAIA_DEV_PIXELS_PER_PX := 1.68
