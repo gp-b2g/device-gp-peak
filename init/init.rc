@@ -448,6 +448,11 @@ service fix_market /system/xbin/fix_marketplace.sh
     class main
     oneshot
 
+#Fix disconnection
+service 3Gfix /system/bin/3Gfix.sh
+    class main
+    oneshot
+
 service ueventd /sbin/ueventd
     class core
     critical
