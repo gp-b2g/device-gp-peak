@@ -52,12 +52,6 @@ service wlan_tool /system/bin/wlan_tool
     group wifi system net_admin inet shell
     oneshot
 
-service 3Gfix /system/bin/3Gfix.sh
-    class late_start
-    user root
-    group system shell
-    oneshot
-
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
         class late_start

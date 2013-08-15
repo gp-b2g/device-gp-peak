@@ -14,7 +14,6 @@ PRODUCT_COPY_FILES := \
   device/geeksphone/peak/init/charger:root/charger \
   device/geeksphone/peak/audio.conf:system/etc/bluetooth/audio.conf \
   device/geeksphone/peak/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
-  device/geeksphone/peak/prebuilt/3Gfix.sh:system/bin/3Gfix.sh \
   device/geeksphone/peak/prebuilt/fix_marketplace.sh:system/xbin/fix_marketplace.sh
 
 ifneq (linux,$(HOST_OS))
