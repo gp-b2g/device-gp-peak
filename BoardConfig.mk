@@ -37,7 +37,7 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom loglevel=1
 ENABLE_LIBRECOVERY := true
 
 # librecovery
-RECOVERY_EXTERNAL_STORAGE := /sdcard
+RECOVERY_EXTERNAL_STORAGE := /emmc
 
 SYSTEM_FS_TYPE            := ext4
 SYSTEM_PARTITION_TYPE     := EMMC
