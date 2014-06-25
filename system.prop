@@ -36,7 +36,6 @@ video.accelerate.hw=1
 
 #Force GPU Rendering on 2d Operations
 debug.sf.hw=1
-debug.egl.profiler=1
 debug.egl.hw=1
 persist.sys.ui.hw=1
 
