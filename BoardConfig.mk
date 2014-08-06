@@ -42,6 +42,8 @@ RECOVERY_EXTERNAL_STORAGE := /emmc
 SYSTEM_FS_TYPE            := ext4
 SYSTEM_PARTITION_TYPE     := EMMC
 SYSTEM_LOCATION           := /dev/block/mmcblk0p12
+SYSTEM_PARTITION           := /dev/block/mmcblk0p12
+DATA_PARTITION           := /dev/block/mmcblk0p13
 
 # Misc
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 471859200
